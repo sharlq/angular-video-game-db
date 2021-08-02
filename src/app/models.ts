@@ -9,9 +9,10 @@ export interface Game{
     metacritic:number;
     genres:Array<Genere>;
     parent_platforms:Array<ParentPlatform>;
-    publishers:Array<Rating>;
+    publishers:Array<Publishers>;
     screenshots:Array<Screenshots>;
     trailers:Array<Trailer>;
+    ratings:Array<Rating>;
 }
 
 export interface APIResponse<T>{
@@ -23,6 +24,7 @@ interface Genere{
 }
 interface ParentPlatform{
     platform:{
+        name:string;
         slug:string;
     };
 }
@@ -31,7 +33,7 @@ interface Publishers{
 }
 interface Rating{
     id:number;
-    xount:number;
+    count:number;
     title:string;
 }
 interface Screenshots{

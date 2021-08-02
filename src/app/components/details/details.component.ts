@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Params,ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Game } from 'src/app/models';
@@ -9,7 +9,7 @@ import { HttpService } from 'src/app/services/http.service';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
-export class DetailsComponent implements OnInit {
+export class DetailsComponent implements OnInit,OnDestroy {
   gameRating = 0;
   gameId!:string;
   game!:Game;
@@ -20,6 +20,9 @@ export class DetailsComponent implements OnInit {
     private ActivatedRoute:ActivatedRoute,
     private httpService:HttpService,
   ) { }
+  ngOnDestroy(): void {
+    throw new Error('Method not implemented.');
+  }
 
   ngOnInit(): void {
     this.routeSub = this.ActivatedRoute.params.subscribe((params:Params)=>{
