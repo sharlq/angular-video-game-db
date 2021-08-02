@@ -4,6 +4,7 @@
     position: relative;
 }
 .details {
+
     ::ng-deep mwl-gauge {
       width: 150px;
       height: 150px;
@@ -43,13 +44,25 @@
     &-banner{
         height: 442px;
         overflow: hidden;
+        &::before{
+          width:100vw;
+          height: inherit;
+          position: absolute;
+          z-index: 0;
+          content:" " ;
+          background-color: #000;
+          opacity: .5;
+        }
         &-img{
             width: 100%;
-            filter: blur(5px);
+           // filter: blur(5px);
+            position: relative;
+            z-index: -1;
         }
     }
     
     &-content{
+
         width: fit-content;
         margin: auto;
         text-align: center;
